@@ -17,4 +17,4 @@ class Exercises(models.Model):
     burned_calories = models.IntegerField()
 
     def __str__(self):
-        return self.name
+        return self.description
