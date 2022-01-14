@@ -8,6 +8,7 @@ def index(request):
 
 
 def test(request):
+
     a = 10
     b = 10
     return HttpResponse(f"10 * 10 is {a*b}")
