@@ -4,7 +4,8 @@ from django.db import models
 class Restaurant(models.Model):
     name = models.CharField(max_length=20)
     place = models.CharField(max_length=50)
-    
+    category = models.CharField(max_length=15)
+
     def __str__(self):
         return self.name, self.name
 
