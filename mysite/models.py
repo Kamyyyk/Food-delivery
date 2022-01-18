@@ -1,31 +1,32 @@
 from django.db import models
 
 
-class Person(models.Model):
+class Restaurant(models.Model):
     name = models.CharField(max_length=20)
-    surname = models.CharField(max_length=30)
-    age = models.IntegerField(default=0)
-
+    place = models.CharField(max_length=50)
+    
     def __str__(self):
-        return self.name, self.surname
+        return self.name, self.name
 
 
-class Food(models.Model):
-    description = models.CharField(max_length=30)
-    calories = models.IntegerField(default=0)
-    created = models.DateTimeField()
-
-    def __str__(self):
-        return self.description
-
-
-class Exercises(models.Model):
+class Votes(models.Model):
     name = models.CharField(max_length=50)
     description = models.CharField(max_length=100)
-    created = models.DateTimeField(auto_now=True)
-    burned_calories = models.IntegerField(default=0)
-    test = models.CharField(max_length=10)
-    # person = models.ForeignKey(Person, on_delete=models.CASCADE)
+    pub_date = models.DateTimeField(auto_now=True)
+    vote = models.IntegerField(default=0)
+    restaurant = models.ForeignKey(Restaurant, on_delete=models.CASCADE)
 
     def __str__(self):
         return self.name
+
+
+# class Food(models.Model):
+#     name = models.CharField(max_length=30)
+#     description = models.CharField(max_length=30)
+#     calories = models.IntegerField(default=0)
+#     created = models.DateTimeField()
+#
+#     def __str__(self):
+#         return self.description
+
+
