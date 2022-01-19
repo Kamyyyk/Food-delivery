@@ -1,0 +1,12 @@
+{% if restaurant_list %}
+    {% for restaurants in restaurant_list %}
+        <li>
+            <a style="text-decoration: none; color: black" href="/mysite{{restaurants.id}}/">
+            {{ restaurants.name }};
+            {{ restaurants.place }}
+            </a>
+        </li>
+    {% endfor %}
+{% else %}
+<p>No votes avaible</p>
+{% endif %}

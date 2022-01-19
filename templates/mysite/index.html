@@ -1,0 +1,14 @@
+{% if vote_list %}
+    {% for votes in vote_list %}
+    <li>
+        <a style="text-decoration: none; color: black" href="/mysite{{votes.id}}/">
+            {{ votes.description }};
+            {{ votes.name }};
+            {{ votes.vote }}
+            {{ votes.restaurant }}
+        </a>
+    </li>
+    {% endfor %}
+{% else %}
+<p>No votes avaible</p>
+{% endif %}
