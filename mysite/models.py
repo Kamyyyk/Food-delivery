@@ -1,4 +1,5 @@
 from django.db import models
+from django.core.validators import MinValueValidator, MaxValueValidator
 
 
 class Restaurant(models.Model):
@@ -13,8 +14,8 @@ class Restaurant(models.Model):
 class Votes(models.Model):
     name = models.CharField(max_length=50)
     description = models.CharField(max_length=100)
-    pub_date = models.DateTimeField(auto_now=True)
-    vote = models.IntegerField(default=0)
+    pub_date = models.DateTimeField('date published')
+    vote = models.IntegerField(validators=[MinValueValidator(1), MaxValueValidator(5)])
     restaurant = models.ForeignKey(Restaurant, on_delete=models.CASCADE)
 
     def __str__(self):
