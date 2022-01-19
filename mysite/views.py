@@ -12,10 +12,10 @@ def detail(requests, restaurant_id):
 
 
 def vote_desc(requests, restaurant_id):
-    return HttpResponse("Restaurant vote: %s." % restaurant_id,)
+    return HttpResponse(f"Restaurant vote:{restaurant_id}")
 
 
 def vote(requests, restaurant_id):
-    return HttpResponse("You made a vote for restaurant %s." % restaurant_id)
+    return HttpResponse(f"You made a vote for restaurant {restaurant_id} ")
 
 
