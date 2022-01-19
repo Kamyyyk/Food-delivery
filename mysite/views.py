@@ -13,7 +13,7 @@ def index(request):
     return HttpResponse(template.render(context, request))
 
 
-def detail(requests):
+def votes(requests):
     restaurant_list = Restaurant.objects.order_by('-name')
     template = loader.get_template('mysite/restaurants.html')
     context = {
