@@ -7,8 +7,13 @@ def index(request):
     return HttpResponse(name)
 
 
-def test(request):
+def detail(requests, restaurant_id):
+    return HttpResponse(f'Restauracja nr {restaurant_id}')
 
-    a = 10
-    b = 10
-    return HttpResponse(f"10 * 10 is {a*b}")
+
+def vote(requests, restaurant_id):
+    return HttpResponse("You are vote for %s." % restaurant_id)
+
+
+# def vote_desc(requests, vote_id):
+#     return HttpResponse("" % vote_id,)
