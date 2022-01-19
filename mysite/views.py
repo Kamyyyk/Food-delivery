@@ -8,12 +8,14 @@ def index(request):
 
 
 def detail(requests, restaurant_id):
-    return HttpResponse(f'Restauracja nr {restaurant_id}')
+    return HttpResponse(f'Restaurant nr: {restaurant_id}')
+
+
+def vote_desc(requests, restaurant_id):
+    return HttpResponse("Restaurant vote: %s." % restaurant_id,)
 
 
 def vote(requests, restaurant_id):
-    return HttpResponse("You are vote for %s." % restaurant_id)
+    return HttpResponse("You made a vote for restaurant %s." % restaurant_id)
 
 
-# def vote_desc(requests, vote_id):
-#     return HttpResponse("" % vote_id,)
