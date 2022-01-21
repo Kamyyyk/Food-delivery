@@ -3,7 +3,6 @@ from django.http import HttpResponse, JsonResponse
 from .models import Votes, Restaurant
 from django.http import Http404
 
-from django.template import loader
 
 
 def index(requests):

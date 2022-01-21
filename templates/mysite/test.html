@@ -1,31 +1,5 @@
 {% if restaurant %}
-    <table>
-        <tr>
-            <th>Nazwa</th>
-            <th>Miejsce</th>
-        </tr>
-        <tr>
-            <td>{{restaurant.name}};</td>
-        </tr>
-        <tr>
-            <td>{{restaurant.category}};</td>
-        </tr>
-    </table>
+    <p>Restaurant name: {{ restaurant.name }}</p>
 
-    <br>
-    <br>
-    <br>
-    <br>
-
-        <table>
-            <tr>
-                <th>Nazwa</th>
-                <th>Opis</th>
-            </tr>
-            <tr>
-                <td>Dupa</td>
-                <td>Cycki</td>
-            </tr>
-        </table>
 
 {% endif %}
