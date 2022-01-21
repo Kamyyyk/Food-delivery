@@ -22,6 +22,14 @@ def restaurant_detail(requests):
     return render(requests, "mysite/restaurants.html", {'restaurants': restaurants})
 
 
+def test(requests, votes_id):
+    try:
+        votes = Restaurant.objects.get(pk=votes_id)
+    except Votes.DoesNotExist:
+        raise Http404("Nie ma takiej restauracji")
+    return render(requests, "mysite/test.html", {'votes': votes})
+
+
 # def votes(request):
 #     restaurant_list = Restaurant.objects.order_by('-name')
 #     context = {'restaurant_list': restaurant_list}
