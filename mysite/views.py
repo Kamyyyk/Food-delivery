@@ -1,7 +1,8 @@
-from django.shortcuts import render
-from django.http import HttpResponse
+from django.shortcuts import render, get_object_or_404
+from django.http import HttpResponse, JsonResponse
 from .models import Votes, Restaurant
 from django.http import Http404
+
 from django.template import loader
 
 
@@ -18,27 +19,18 @@ def restaurant_detail(requests):
     try:
         restaurants = Restaurant.objects.order_by('-name')
     except Votes.DoesNotExist:
-        raise Http404("Nie ma takiej restauracji")
+        raise Http404("Nie ma restauracji o takim id")
     return render(requests, "mysite/restaurants.html", {'restaurants': restaurants})
 
 
-def test(requests, id):
-    try:
-        restaurant = Restaurant.objects.get(pk=id)
-    except Restaurant.DoesNotExist:
-        raise Http404("Nie ma takiej restauracji")
+def show_restaurant(requests, restaurant_id):
+    restaurant = get_object_or_404(Restaurant, pk=restaurant_id)
     return render(requests, "mysite/test.html", {'restaurant': restaurant})
 
 
-# def votes(request):
-#     restaurant_list = Restaurant.objects.order_by('-name')
-#     context = {'restaurant_list': restaurant_list}
-#     return render(request, 'mysite/restaurants.html', context)
-#
-#
-# def vote_desc(requests, restaurant_id):
-#     return HttpResponse(f"Restaurant vote:{restaurant_id}")
-#
-#
-# def vote(requests, restaurant_id):
-#     return HttpResponse(f"You made a vote for restaurant {restaurant_id} ")
+def test(request):
+    to_json = {
+        'Foo': 'bar',
+        'Fooo': 'bar'
+    }
+    return JsonResponse(to_json)

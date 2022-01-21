@@ -1,6 +1,31 @@
 {% if restaurant %}
-    <a style="text-decoration: none; color: black" href="/mysite{{ restaurant.id }} /">
-            {{ restaurant.name }};
-{% else %}
-    <p>No votes avaible</p>
+    <table>
+        <tr>
+            <th>Nazwa</th>
+            <th>Miejsce</th>
+        </tr>
+        <tr>
+            <td>{{restaurant.name}};</td>
+        </tr>
+        <tr>
+            <td>{{restaurant.category}};</td>
+        </tr>
+    </table>
+
+    <br>
+    <br>
+    <br>
+    <br>
+
+        <table>
+            <tr>
+                <th>Nazwa</th>
+                <th>Opis</th>
+            </tr>
+            <tr>
+                <td>Dupa</td>
+                <td>Cycki</td>
+            </tr>
+        </table>
+
 {% endif %}
