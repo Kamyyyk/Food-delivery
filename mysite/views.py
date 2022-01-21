@@ -4,7 +4,6 @@ from .models import Votes, Restaurant
 from django.http import Http404
 
 
-
 def index(requests):
     try:
         vote_list = Votes.objects.order_by('-pub_date')

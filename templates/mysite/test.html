@@ -1,5 +1,8 @@
 {% if restaurant %}
-    <p>Restaurant name: {{ restaurant.name }}</p>
+    <a href="{% url 'mysite:restauracje' restaurant.id%}"> {{ restaurant.name }}</a>
+
+
+{#    <p>Restaurant name: {{ restaurant.name }}</p>#}
 
 
 {% endif %}
