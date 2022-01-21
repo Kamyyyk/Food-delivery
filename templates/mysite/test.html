@@ -1,14 +1,6 @@
-{#{% if votes %}#}
-{#    <h1> dupa </h1>#}
-{#    {% for v in votes %}#}
-{##}
-{#        <li>#}
-{#            <a style="text-decoration: none; color: black" href="/mysite{{votes.id}}/">#}
-{#            {{ votes.name }};#}
-{#            </a>#}
-{#        </li>#}
-{##}
-{#    {% endfor %}#}
-{#{% else %}#}
-{#<p>No votes avaible</p>#}
-{#{% endif %}#}
+{% if restaurant %}
+    <a style="text-decoration: none; color: black" href="/mysite{{ restaurant.id }} /">
+            {{ restaurant.name }};
+{% else %}
+    <p>No votes avaible</p>
+{% endif %}
