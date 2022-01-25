@@ -1,14 +1,9 @@
-{% if restaurants %}
-    {% for restaurants in restaurants %}
-
-        <li>
-            <a style="text-decoration: none; color: black" href="/mysite{{restaurants.id}}/">
+ {% for restaurants in restaurants %}
+    <li>
+        <a style="text-decoration: none; color: black" href="/mysite{{restaurants.id}}/">
             {{ restaurants.name }};
             {{ restaurants.place }}
             </a>
         </li>
+{% endfor %}
 
-    {% endfor %}
-{% else %}
-<p>No votes avaible</p>
-{% endif %}

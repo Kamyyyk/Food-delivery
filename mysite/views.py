@@ -1,7 +1,8 @@
-from django.shortcuts import render, get_object_or_404
+from django.shortcuts import render, get_object_or_404, redirect
 from django.http import HttpResponse, JsonResponse
 from .models import Votes, Restaurant
 from django.http import Http404
+from django.contrib.auth import authenticate, login
 
 
 def index(requests):
@@ -26,9 +27,12 @@ def show_restaurant(requests, restaurant_id):
     return render(requests, "mysite/test.html", {'restaurant': restaurant})
 
 
-def test(request):
-    to_json = {
-        'Foo': 'bar',
-        'Fooo': 'bar'
-    }
-    return JsonResponse(to_json)
+def my_view(request):
+    username = request.POST['username']
+    password = request.POST['password']
+    user = authenticate(request, username=username, password=password)
+    if user is not None:
+        login(request, user)
+        return redirect('mysite:index')
+
+

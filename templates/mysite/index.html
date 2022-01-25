@@ -3,16 +3,13 @@
     <input type="submit" value="Kliknij by przejsc do strony z restauracjami">
 </form>
 
+  <form action="{% url 'mysite:restaurants'%}">
+    <input type="submit" value="Kliknij aby sie zalogowac">
+</form>
 
-{% for votes in vote_list %}
-    <li>
-        User: {{ votes.name }};
-        {{ votes.description }}
-        </a>
-    </li>
-    {% endfor %}
-<br/>
-<br/>
-<br/>
+  <form action="{% url 'mysite:restaurants'%}">
+    <input type="submit" value="Kliknij aby sie zarejestrowac">
+</form>
+
 
 
