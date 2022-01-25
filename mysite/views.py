@@ -2,16 +2,11 @@ from django.shortcuts import render, get_object_or_404, redirect
 from django.http import HttpResponse, JsonResponse
 from .models import Votes, Restaurant
 from django.http import Http404
-from django.contrib.auth import authenticate, login
+from django.contrib.auth import authenticate, login,logout
 
 
 def index(requests):
-    try:
-        vote_list = Votes.objects.order_by('-pub_date')
-    except Votes.DoesNotExist:
-        raise Http404("Nie ma glosu o takim id...")
-    context = {'vote_list': vote_list}
-    return render(requests, 'mysite/index.html', context)
+    return render(requests, 'mysite/index.html')
 
 
 def restaurant_detail(requests):
@@ -34,5 +29,17 @@ def my_view(request):
     if user is not None:
         login(request, user)
         return redirect('mysite:index')
+    else:
+        return redirect('mysite:login')
+
+
+def logout_view(request):
+    logout(request)
+    return redirect('mysite:index')
+
+
+
+
+
 
 
