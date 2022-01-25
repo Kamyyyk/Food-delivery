@@ -1,8 +1,9 @@
-{% if restaurant %}
-    <a href="{% url 'mysite:restauracje' restaurant.id%}"> {{ restaurant.name }}</a>
+
+<form action="{% url 'mysite:restauracje' restaurant.id%}", method="post">
+    {% for vote in restaurant.choice_set.all %}
+        <input type="radio" name="vote", id="vote{{ forloop.counter }}" value="{{ vote.id }}">
+        <input type="submit" value="Kliknij aby zaglosowac na restauracje ">
+    {% endfor %}
 
 
-{#    <p>Restaurant name: {{ restaurant.name }}</p>#}
-
-
-{% endif %}
+</form>

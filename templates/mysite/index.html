@@ -1,8 +1,18 @@
-<h1>{{ votes.name }}</h1>
+<h1>Strona startowa aplikacji po zalogowaniu</h1>
+  <form action="{% url 'mysite:restaurants'%}">
+    <input type="submit" value="Kliknij by przejsc do strony z restauracjami">
+</form>
+
+
 {% for votes in vote_list %}
     <li>
         User: {{ votes.name }};
-
+        {{ votes.description }}
         </a>
     </li>
     {% endfor %}
+<br/>
+<br/>
+<br/>
+
+
