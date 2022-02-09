@@ -5,8 +5,13 @@ from django.http import Http404
 from django.contrib.auth import authenticate, login,logout
 
 
-def index(requests):
-    return render(requests, 'mysite/index.html')
+def home(requests):
+    return render(requests, 'mysite/not_logged.html')
+
+
+def loggout(request):
+    logout(request)
+    return render(request, 'mysite/not_logged.html')
 
 
 def restaurant_detail(requests):
@@ -19,7 +24,8 @@ def restaurant_detail(requests):
 
 def show_restaurant(requests, restaurant_id):
     restaurant = get_object_or_404(Restaurant, pk=restaurant_id)
-    return render(requests, "mysite/test.html", {'restaurant': restaurant})
+    context = {'restaurant': restaurant}
+    return render(requests, "mysite/test.html", context)
 
 
 def my_view(request):
@@ -33,9 +39,10 @@ def my_view(request):
         return redirect('mysite:login')
 
 
-def logout_view(request):
-    logout(request)
-    return redirect('mysite:index')
+
+
+def register(request):
+    pass
 
 
 
