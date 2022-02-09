@@ -6,15 +6,16 @@
 </head>
 
 <body>
-<h1>Strona startowa</h1>
-  <form action="{% url 'mysite:restaurants'%}">
+<div class="test" style="text-align: center">
+    <h1 >Aby wejsc na strone musisz sie zalogowac</h1>
+  <form action="{% url 'mysite:login'%}">
     <input type="submit" value="Zaloguj sie">
 </form>
 
-  <form action="{% url 'mysite:restaurants'%}">
+  <form action="{% url 'mysite:register'%}">
     <input type="submit" value="Zarejestruj sie">
 </form>
-
+</div>
 </body>
 
 </html>
