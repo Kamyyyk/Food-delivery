@@ -1,4 +1,3 @@
-
 <form action="{% url 'mysite:restauracje' restaurant.id%}", method="post">
     {% for vote in restaurant.choice_set.all %}
         <input type="radio" name="vote", id="vote{{ forloop.counter }}" value="{{ vote.id }}">
