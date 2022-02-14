@@ -8,13 +8,14 @@
 <body>
 <div class="test" style="text-align: center">
     <h1 >Aby wejsc na strone musisz sie zalogowac</h1>
-  <form action="{% url 'mysite:login'%}">
+  <form action="{% url 'login' %}">
     <input type="submit" value="Zaloguj sie">
-</form>
-
+    </form>
+    <br>
   <form action="{% url 'mysite:register'%}">
     <input type="submit" value="Zarejestruj sie">
-</form>
+    </form>
+    <br>
 </div>
 </body>
 

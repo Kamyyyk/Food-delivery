@@ -1,7 +1,23 @@
- {% for restaurants in restaurants %}
-    <li>
-            {{ restaurants.name }};
-            {{ restaurants.place }}
-        </li>
+<style>
+    table,th,td{
+        border: 1px solid black;
+    }
+</style>
+
+<table>
+    <tr>
+        <th>Nazwa</th>
+        <th>Adres</th>
+    </tr>
+
+    <tr>
+        {% for restaurants in restaurants %}
+            <td>{{ restaurants.name }}</td>
+            <td>{{ restaurants.place }}</td>
+            </tr>
+</table>
+
+
+
 {% endfor %}
 
