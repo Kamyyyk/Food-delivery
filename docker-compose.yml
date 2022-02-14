@@ -11,3 +11,16 @@ services:
       POSTGRES_PASSWORD: admin
     ports:
       - "5432:5432"
+  web:
+    build: .
+    command: python manage.py runserver 0.0.0.0:8000
+    volumes:
+      - .:/portal
+    ports:
+      - "8000:8000"
+    environment:
+      POSTGRES_USER: admin
+      POSTGRES_DATABASE: postgres
+      POSTGRES_PASSWORD: admin
+    depends_on:
+     - db
