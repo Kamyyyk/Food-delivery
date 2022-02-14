@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<ul>
+    {% for votes in vote%}
+        {{ votes.name }}
+        {{ votes.description }}
+        {{ votes.vote }}
+        {{ votes.restaurant }}
+{% endfor %}
+</ul>
+
+
+</body>
+</html>

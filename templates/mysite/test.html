@@ -1,3 +1,23 @@
-{{ restaurant.name }}
-{{ restaurant.place}}
-{{ restaurant.category}}
+<head>
+    <style>
+        table,th,td{
+            border: 1px solid black;
+        }
+    </style>
+</head>
+
+<table>
+    <tr>
+        <th>Nazwa</th>
+        <th>Adres</th>
+        <th>Kategoria</th>
+    </tr>
+    <tr>
+        <td>{{ restaurant.name }}</td>
+        <td>{{ restaurant.place}}</td>
+        <td>{{ restaurant.category}}</td>
+    </tr>
+
+</table>
+
+
