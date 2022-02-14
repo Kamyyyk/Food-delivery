@@ -1,7 +1,10 @@
 {% block content %}
 {% if user.is_authenticated %}
+<!-- <<<<<<< front_branch
     <h5>Logged as {{ user.username }}</h5>
     <p><a href="{% url 'logout' %}"> Logout </a> </p>
+======= -->
+<!-- >>>>>>> master -->
     <h1>Strona startowa aplikacji po zalogowaniu</h1>
     <button><a href="{% url 'mysite:restaurants' %}">Restauracje</a></button>
     <button><a href="{% url 'mysite:result' %}">Oceny</a></button>
