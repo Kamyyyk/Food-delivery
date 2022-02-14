@@ -22,13 +22,3 @@ class Votes(models.Model):
         return self.name
 
 
-# class Food(models.Model):
-#     name = models.CharField(max_length=30)
-#     description = models.CharField(max_length=30)
-#     calories = models.IntegerField(default=0)
-#     created = models.DateTimeField()
-#
-#     def __str__(self):
-#         return self.description
-
-
