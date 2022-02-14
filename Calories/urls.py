@@ -15,6 +15,7 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path, include
+from django.contrib.auth import views as auth_views
 from django.views.generic.base import TemplateView
 
 
@@ -22,6 +23,6 @@ urlpatterns = [
     path('admin/', admin.site.urls),
     path('mysite/', include('mysite.urls')),
     path('accounts/', include('django.contrib.auth.urls')),
-    path('home', TemplateView.as_view(template_name='home.html'), name='home'),
-    path('', TemplateView.as_view(template_name='not_logged.html'), name='not_logged'),
+    path('home', TemplateView.as_view(template_name='mysite/home.html'), name='home'),
+    path('', TemplateView.as_view(template_name='registration/not_logged.html'), name='not_logged'),
 ]
