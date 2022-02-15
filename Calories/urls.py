@@ -23,6 +23,6 @@ urlpatterns = [
     path('admin/', admin.site.urls),
     path('mysite/', include('mysite.urls')),
     path('accounts/', include('django.contrib.auth.urls')),
-    path('home', TemplateView.as_view(template_name='mysite/home.html'), name='home'),
+    path('mysite/', TemplateView.as_view(template_name='mysite/index.html'), name='home'),
     path('', TemplateView.as_view(template_name='registration/not_logged.html'), name='not_logged'),
 ]
