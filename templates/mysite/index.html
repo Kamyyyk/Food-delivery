@@ -1,0 +1,11 @@
+{% extends 'mysite/home.html' %}
+
+{% block content %}
+    {% if user.is_authenticated %}
+    <h1>Strona startowa aplikacji po zalogowaniu</h1>
+    <button><a href="{% url 'mysite:restaurants' %}">Restauracje</a></button>
+    <button><a href="{% url 'mysite:result' %}">Oceny</a></button>
+    <button><a href="{% url 'mysite:add'%}">Dodaj restauracje</a></button>
+    {% endif %}
+{% endblock content %}
+

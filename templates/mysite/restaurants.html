@@ -1,10 +1,12 @@
+{% extends 'mysite/home.html' %}
+{% block content %}
 <style>
     table,th,td{
         border: 1px solid black;
     }
 </style>
-
-<table>
+    {% if user.is_authenticated %}
+        <table>
     <tr>
         <th>Nazwa</th>
         <th>Adres</th>
@@ -16,8 +18,9 @@
             <td>{{ restaurants.place }}</td>
             </tr>
 </table>
-
-
-
 {% endfor %}
+{% endif %}
+
+{% endblock content %}
+
 
