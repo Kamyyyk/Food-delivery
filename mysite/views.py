@@ -2,22 +2,15 @@ from django.shortcuts import render, get_object_or_404, redirect
 from django.http import HttpResponse, JsonResponse, HttpResponseRedirect
 from .models import Votes, Restaurant
 from django.urls import reverse
-from .forms import VoteForm, RestaurantForm
+from .forms import VoteForm, RestaurantForm, NewUserForm
 from django.template import loader
 from django.http import Http404
 from django.contrib.auth import authenticate, login, logout
+from django.contrib import messages
 
 
 def home(requests):
-    return render(requests, 'not_logged.html')
-
-
-def index(request):
-    return render(request, 'mysite/home.html')
-
-
-def logout(request):
-    return render(request, 'mysite/not_logged.html')
+    return render(requests, 'mysite/index.html')
 
 
 def show_restaurants(requests):
@@ -56,11 +49,21 @@ def vote(request, id):
 
 def votes(request):
     show_votes = Votes.objects.all()
-    return render(request, 'mysite/votes.html', {'vote':show_votes})
+    return render(request, 'mysite/votes.html', {'vote': show_votes})
 
 
-def register(request):
-    return render(request, 'mysite/register.html')
+def register_request(request):
+    if request.method == 'POST':
+        form = NewUserForm(request.POST)
+        if form.is_valid():
+            user = form.save()
+            login(request, user)
+            messages.success(request, "Registration successful.")
+            return redirect('mysite:home')
+        messages.error(request, 'invalid information')
+    form = NewUserForm()
+    return render(request, template_name="registration/register.html", context={'register_form': form})
+
 
 
 
