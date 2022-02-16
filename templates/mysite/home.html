@@ -7,11 +7,16 @@
           integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
 </head>
 <body>
+{% if user.is_authenticated %}
 {% include 'includes/navbar.html' %}
 <br>
 
 {% block content %}
 {% endblock %}
+    {% else %}
+    <h1>Jestes niezalogowany</h1>
+    <a href={% url 'not_logged' %}>Zaloguj sie tu</a>
+{% endif %}
 
 
 

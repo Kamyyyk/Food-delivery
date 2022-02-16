@@ -11,13 +11,15 @@
             <tr>
                 <th>Nazwa</th>
                 <th>Adres</th>
+                <th>Kategoria</th>
             </tr>
             <tr>
-                {% for restaurants in restaurants %}
-                    <td>{{ restaurants.name }}</td>
-                    <td>{{ restaurants.place }}</td>
+                {% for restaurant in restaurants %}
+                    <td>{{ restaurant.name }}</td>
+                    <td>{{ restaurant.place }}</td>
+                    <td>{{ restaurant.category }}</td>
+                    <td><button type="button"><a href="{% url 'mysite:edit_restaurant' id=restaurant.id %}">Edytuj</a></button></td>
                     </tr>
-
                 {% endfor %}
         </table>
         <br>

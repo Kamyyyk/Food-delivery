@@ -1,14 +1,11 @@
 {% extends 'mysite/home.html' %}
 
 {% block content %}
-    {% if user.is_authenticated %}
         <ul>
             <li><button><a href="{% url 'mysite:restaurants' %}">Restauracje</a></button></li>
             <li><button><a href="{% url 'mysite:result' %}">Oceny</a></button></li>
             <li><button><a href="{% url 'mysite:add'%}">Dodaj restauracje</a></button></li>
             <li><button><a href="">Zaglosuj na restauracje</a></button></li>
         </ul>
-
-    {% endif %}
 {% endblock content %}
 
