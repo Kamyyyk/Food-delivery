@@ -2,10 +2,13 @@
 
 {% block content %}
     {% if user.is_authenticated %}
-    <h1>Strona startowa aplikacji po zalogowaniu</h1>
-    <button><a href="{% url 'mysite:restaurants' %}">Restauracje</a></button>
-    <button><a href="{% url 'mysite:result' %}">Oceny</a></button>
-    <button><a href="{% url 'mysite:add'%}">Dodaj restauracje</a></button>
+        <ul>
+            <li><button><a href="{% url 'mysite:restaurants' %}">Restauracje</a></button></li>
+            <li><button><a href="{% url 'mysite:result' %}">Oceny</a></button></li>
+            <li><button><a href="{% url 'mysite:add'%}">Dodaj restauracje</a></button></li>
+            <li><button><a href="">Zaglosuj na restauracje</a></button></li>
+        </ul>
+
     {% endif %}
 {% endblock content %}
 

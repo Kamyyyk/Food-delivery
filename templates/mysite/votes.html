@@ -1,12 +1,33 @@
 {% extends 'mysite/home.html' %}
 
 {%block content%}
-<ul>
-    {% for votes in vote%}
-        {{ votes.name }}
-        {{ votes.description }}
-        {{ votes.vote }}
-        {{ votes.restaurant }}
-{% endfor %}
-</ul>
+    <style>
+        table,th,td{
+        border: 1px solid black;
+    }
+</style>
+
+    {% if user.is_authenticated  %}
+        <h1>Glosy na restauracje</h1>
+        <table>
+            <tr>
+                <th>Imie</th>
+                <th>Opis</th>
+                <th>Ocena</th>
+                <th>Restauracja</th>
+            </tr>
+            <tr>
+            {% for votes in vote %}
+                <td>{{ votes.name }}</td>
+                <td>{{ votes.description }}</td>
+                <td>{{ votes.vote }}</td>
+                <td>{{ votes.restaurant }}</td>
+                </tr>
+            {% endfor %}
+        </table>
+        <br>
+        <form action="{% url 'mysite:home' %}">
+            <input type="submit" value="Powrot">
+        </form>
+{% endif %}
 {% endblock content %}
