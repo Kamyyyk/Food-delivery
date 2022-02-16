@@ -19,6 +19,7 @@
                     <td>{{ restaurant.place }}</td>
                     <td>{{ restaurant.category }}</td>
                     <td><button type="button"><a href="{% url 'mysite:edit_restaurant' id=restaurant.id %}">Edytuj</a></button></td>
+                    <td><button><a href="{% url 'mysite:delete_restaurant' id=restaurant.id %}">Usun</a></button></td>
                     </tr>
                 {% endfor %}
         </table>
