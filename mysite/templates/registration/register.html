@@ -1,23 +1,45 @@
-<div class = "container">
-    <h1>Rejestracja</h1>
-    <form method="post" action="">
-        {% csrf_token %}
-        <label>Username</label>
-        {{ register_form.username }}
-        <label>Email</label>
-        {{ register_form.email }}
-        <label>Password</label>
-        {{ register_form.password1 }}
-        <label>Powtorz haslo</label>
-        {{ register_form.password2 }}
-        <button class="btn btn-primary"  type="submit">Rejestracja</button>
-    </form>
+{% load static %}
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Rejestracja</title>
+    <link rel="stylesheet" type="text/css" href="{% static 'css/register.css' %}">
+    <link href="//maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+    <script src="//maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+</head>
 
-    {{ register_form.errors }}
+<body id="bg" style="background-image: url('{% static "img/3692584.jpg"  %}')">
+<div class="container-fluid bg">
+    <div class="row justify-content-center">
+        <div class="col-12 col-sm-6 col-md-3">
+            <div class="form-container">
+                <div class="d-flex justify-content-center">
+                    <h3 id="form-title">Rejestracja</h3>
+                </div>
+                <form method="post" action="" class="">
+                    {% for form in register_form %}
+                        {{ form.label }}
+                        {{ form }}
+                    {% endfor %}
+                {{ messages.error }}
+                    <div class="d-flex justify-content-center mt-3">
+                    <button type="submit" class="btn btn-primary">Rejestracja</button>
+                </div>
 
-  <form action="{% url 'login'%}">
-    <input type="submit" value="Powrot na strone glowna">
-  </form>
+                </form>
+                <div class="d-flex justify-content-center mt-3">
+                <form action="{% url 'login'%}">
+                    <input type="submit" value="Powrot na strone glowna">
+                </form>
+                </div>
+            </div>
+        </div>
+    </div>
 </div>
+</body>
 
+
+
+</html>
 
