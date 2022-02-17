@@ -1,16 +1,2 @@
-<hr>
-<div>
-    {% if user.is_authenticated %}
-        Zalogowany jako {{ user.username }}
-        <a href="{% url 'logout' %}"> Wyloguj sie </a>
-
-{% else %}
-    <h1>Nie jestes zalogowany</h1>
-    <a href="{% url 'login' %}"> Zaloguj sie </a>
-{% endif %}
-</div>
-<hr>
-<div>
-    {% block content %}
-    {% endblock content %}
-</div>
+<h1>Jestes niezalogowany</h1>
+<a href={% url 'login' %}>Zaloguj sie tu</a>
