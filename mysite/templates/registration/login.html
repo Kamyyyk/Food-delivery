@@ -3,33 +3,40 @@
 <html>
 <head>
     <title>Niezalogowany</title>
-    <link rel="stylesheet" type="text/css" href="{% static 'css/main.css' %}">
+    <link rel="stylesheet" type="text/css" href="{% static 'css/login.css' %}">
+    <link href="//maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+    <script src="//maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
 </head>
 
 <body>
-    <h1>Login</h1>
-    <div class = "container">
-        <form method="post">
-            {% csrf_token %}
-            <label>Login</label>
-            <input type="text" name="username">
-            <label>Haslo</label>
-            <input type="password" name="password">
-            <input type="submit" value="Zaloguj sie">
-        </form>
-        <form action="{% url 'mysite:register'%}">
-            <input type="submit" value="Zarejestruj sie">
-        </form>
-        {% for message in messages %}
-            <p id="messages">{{ message }}</p>
-        {% endfor %}
+<div class="container h-100">
+    <div class="d-flex justify-content-center h-100">
+        <div class="login_card">
+            <div class="d-flex justify-content-center">
+                <h3>Logowanie</h3>
+            </div>
+            <div class="d-flex justify-content-center form_container">
+                <form method="post" action="">
+                    <div class="input-group-mb-3">
+                        <input type="text" class="form-control" name="username" placeholder="Login">
+                    </div>
+                    <div class="input-group mb-2">
+                        <input type="password" class="form-control" name="password" placeholder="Haslo">
+                    </div>
+
+                    <div class="d-flex justify-content-center mt-3 login_container">
+                        <input class="btn login_btn" type="submit" value="Zaloguj sie">
+                    </div>
+                </form>
+            </div>
+            <div class="mt-4">
+                <div class="d-flex justify-content-center links">
+                    Nie masz konta? <a class="ForgetPwd" href="{% url 'mysite:register' %}">Zarejestruj sie</a>
+                </div>
+            </div>
+        </div>
     </div>
-<h1 class="ok">dupa</h1>
-
-
-
+</div>
 </body>
-
-
-
 </html>
