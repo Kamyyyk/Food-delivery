@@ -13,9 +13,8 @@
 
 {% block content %}
 {% endblock %}
-    {% else %}
-    <h1>Jestes niezalogowany</h1>
-    <a href={% url 'login' %}>Zaloguj sie tu</a>
+{% else %}
+    {% include 'includes/login_info.html' %}
 {% endif %}
 
 
