@@ -1,3 +1,48 @@
-.ok{
-    color: red;
+body,html {
+    margin: 0;
+    padding: 0;
+    height: 100%;
+}
+
+.login_card{
+    width: 500px;
+    margin-top: auto;
+    margin-bottom: auto;
+    position: relative;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    border-radius: 20px;
+    padding: 20px;
+    background: #ffffff;
+    opacity: 0.9;
+    box-shadow: -1px 0px 9px 2px rgba(117, 117, 117, 0.5);
+    -webkit-box-shadow: -1px 0px 9px 2px rgba(117, 117, 117, 0.5);
+    -moz-box-shadow: -1px 0px 9px 2px rgba(117, 117, 117, 0.5);
+}
+
+.form_container{
+    margin-top:10px;
+}
+
+.login_btn{
+    border-radius: 5px !important;
+}
+
+.login_btn:focus{
+    box-shadow: none !important;
+}
+
+
+.form_control{
+    margin-top:10px
+}
+
+#message{
+    background-color:grey;
+    color: #fff;
+}
+
+.input-group{
+    color:red
 }
