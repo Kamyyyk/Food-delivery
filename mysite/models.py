@@ -1,5 +1,6 @@
 from django.db import models
 from django.core.validators import MinValueValidator, MaxValueValidator
+from django.contrib.auth.models import User
 
 
 class Restaurant(models.Model):
@@ -20,5 +21,11 @@ class Votes(models.Model):
 
     def __str__(self):
         return self.name
+
+
+class Comments(models.Model):
+    comment = models.CharField(max_length=1000)
+    restaurant = models.ForeignKey(Restaurant, on_delete=models.CASCADE)
+    user = models.ForeignKey(User, on_delete=models.CASCADE)
 
 
