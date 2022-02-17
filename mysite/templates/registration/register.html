@@ -1,0 +1,23 @@
+<div class = "container">
+    <h1>Rejestracja</h1>
+    <form method="post" action="">
+        {% csrf_token %}
+        <label>Username</label>
+        {{ register_form.username }}
+        <label>Email</label>
+        {{ register_form.email }}
+        <label>Password</label>
+        {{ register_form.password1 }}
+        <label>Powtorz haslo</label>
+        {{ register_form.password2 }}
+        <button class="btn btn-primary"  type="submit">Rejestracja</button>
+    </form>
+
+    {{ register_form.errors }}
+
+  <form action="{% url 'login'%}">
+    <input type="submit" value="Powrot na strone glowna">
+  </form>
+</div>
+
+

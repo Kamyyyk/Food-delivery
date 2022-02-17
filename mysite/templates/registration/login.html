@@ -1,0 +1,35 @@
+{% load static %}
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Niezalogowany</title>
+    <link rel="stylesheet" type="text/css" href="{% static 'css/main.css' %}">
+</head>
+
+<body>
+    <h1>Login</h1>
+    <div class = "container">
+        <form method="post">
+            {% csrf_token %}
+            <label>Login</label>
+            <input type="text" name="username">
+            <label>Haslo</label>
+            <input type="password" name="password">
+            <input type="submit" value="Zaloguj sie">
+        </form>
+        <form action="{% url 'mysite:register'%}">
+            <input type="submit" value="Zarejestruj sie">
+        </form>
+        {% for message in messages %}
+            <p id="messages">{{ message }}</p>
+        {% endfor %}
+    </div>
+<h1 class="ok">dupa</h1>
+
+
+
+</body>
+
+
+
+</html>

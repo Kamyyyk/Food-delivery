@@ -2,7 +2,14 @@
 
 {% block content %}
         <ul>
-            <li><button><a href="{% url 'mysite:restaurants' %}">Restauracje</a></button></li>
+            <li>
+                <form method="get">
+                <button><a href="{% url 'mysite:restaurants' %}">Restauracje</a></button>
+                </form>
+            </li>
+
+
+
             <li><button><a href="{% url 'mysite:result' %}">Oceny</a></button></li>
             <li><button><a href="{% url 'mysite:add'%}">Dodaj restauracje</a></button></li>
             <li><button><a href="">Zaglosuj na restauracje</a></button></li>
