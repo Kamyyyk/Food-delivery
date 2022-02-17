@@ -13,7 +13,9 @@ urlpatterns = [
     path('restaurant/edit/<int:id>', views.edit_restaurant, name='edit_restaurant'),
     path('restaurant/delete/<int:id>', views.delete_restaurant, name="delete_restaurant"),
 
-    path('register', views.register_request, name='register'),
+    path('account/register', views.register_request, name='register'),
+    # path('account/login', views.login_request, name='login'),
+    path('account/logout', views.logout, name='logout'),
 ]
 
 
