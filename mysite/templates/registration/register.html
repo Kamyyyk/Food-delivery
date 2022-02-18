@@ -17,16 +17,15 @@
                 <div class="d-flex justify-content-center">
                     <h3 id="form-title">Rejestracja</h3>
                 </div>
-                <form method="post" action="" class="">
+                <form method="post">
+                {% csrf_token %}
                     {% for form in register_form %}
                         {{ form.label }}
                         {{ form }}
                     {% endfor %}
-                {{ messages.error }}
                     <div class="d-flex justify-content-center mt-3">
-                    <button type="submit" class="btn btn-primary">Rejestracja</button>
-                </div>
-
+                        <input class="btn login_btn" type="submit" value="Rejestracja">
+                    </div>
                 </form>
                 <div class="d-flex justify-content-center mt-3">
                 <form action="{% url 'login'%}">
