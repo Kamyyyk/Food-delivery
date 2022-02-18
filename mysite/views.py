@@ -7,24 +7,29 @@ from django.template import loader
 from django.http import Http404
 from django.contrib.auth import authenticate, login, logout
 from django.contrib import messages
+from django.contrib.auth.decorators import login_required
 
 
+@login_required()
 def home(requests):
     return render(requests, 'mysite/index.html')
 
 
+@login_required()
 def show_restaurants(requests):
     restaurants = Restaurant.objects.order_by('-name')
     context = {'restaurants': restaurants}
     return render(requests, 'mysite/restaurants.html', context)
 
 
+@login_required()
 def show_restaurant(requests, rid):
     restaurant = get_object_or_404(Restaurant, pk=rid)
     context = {'restaurant': restaurant}
     return render(requests, "mysite/test.html", context)
 
 
+@login_required()
 def add_restaurant(request):
     if request.method == "POST":
         form = RestaurantForm(request.POST)
@@ -38,6 +43,7 @@ def add_restaurant(request):
     return render(request, 'mysite/add_restaurant.html', context)
 
 
+@login_required()
 def edit_restaurant(request, id):
     restaurant = Restaurant.objects.get(pk=id)
     restaurant_form = RestaurantForm(instance=restaurant)
@@ -49,11 +55,12 @@ def edit_restaurant(request, id):
         restaurant_form = RestaurantForm(request.POST, instance=restaurant)
         if restaurant_form.is_valid():
             restaurant_form.save()
-            return HttpResponseRedirect(reverse('mysite:restaurants'))
+            return redirect(reverse('mysite:restaurants'))
     context = {'form': restaurant_form, 'restaurant': restaurant}
     return render(request, 'mysite/edit_restaurant.html', context)
 
 
+@login_required()
 def delete_restaurant(request, id):
     restaurant = Restaurant.objects.get(pk=id)
     restaurant.delete()
@@ -85,17 +92,19 @@ def login_request(request):
             login(request, user)
             return redirect('mysite:home')
         else:
-            messages.info(request, "Login albo haslo sa bledne")
+            messages.info(request, "Nieprawidlowy login lub haslo")
 
     return render(request, 'registration/login.html', context={})
 
 
+@login_required()
 def logout_request(request):
     logout(request)
     messages.info(request, 'Logged out')
     return redirect('mysite:home')
 
 
+@login_required()
 def vote(request, id):
     restaurant = Restaurant.objects.get(pk=id)
     print(restaurant)
@@ -108,6 +117,7 @@ def vote(request, id):
     return render(request, 'mysite/voting.html', context={'restaurant': restaurant, 'form': votes_form})
 
 
+@login_required()
 def votes(request):
     show_votes = Votes.objects.all()
     return render(request, 'mysite/votes.html', {'vote': show_votes})
