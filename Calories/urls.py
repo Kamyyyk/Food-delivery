@@ -17,12 +17,13 @@ from django.contrib import admin
 from django.urls import path, include
 from django.contrib.auth import views as auth_views
 from django.views.generic.base import TemplateView
+from mysite import views
 
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('mysite/', include('mysite.urls')),
+    path('', include('mysite.urls')),
     path('accounts/', include('django.contrib.auth.urls')),
-    path('mysite/', TemplateView.as_view(template_name='mysite/index.html'), name='home'),
-    path('', TemplateView.as_view(template_name='registration/not_logged.html'), name='not_logged'),
+    # path('mysite/', TemplateView.as_view(template_name='mysite/index.html'), name='home'),
+    path('/account/login', views.login_request, name='login'),
 ]
