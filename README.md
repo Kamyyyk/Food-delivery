@@ -1,2 +1,2 @@
 # Food Delivery site.
-Used: Django, Docker, Postgres
+Used: Django, Docker, Postgres, Jinja
